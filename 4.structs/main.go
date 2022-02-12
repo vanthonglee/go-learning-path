@@ -12,4 +12,10 @@ func main() {
 
 	fmt.Println(alex)
 
+	var george person
+	george.firstName = "George"
+	george.lastName = "Lee"
+	fmt.Println(george)
+	fmt.Printf("%+v", george)
+
 }
