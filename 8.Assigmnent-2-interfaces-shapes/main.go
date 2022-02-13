@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 type triangle struct {
 	height float64
@@ -15,8 +18,8 @@ type shape interface {
 }
 
 func main() {
-	t := triangle{24, 13}
-	sq := square{5}
+	t := triangle{height: 5.0, base: 5.0}
+	sq := square{sideLength: 2}
 
 	printArea(t)
 	printArea(sq)
@@ -31,5 +34,5 @@ func (sq square) getArea() float64 {
 }
 
 func printArea(s shape) {
-	fmt.Println("Area of this square:", s.getArea())
+	fmt.Println("area of", reflect.TypeOf(s).Name(), "is", s.getArea())
 }
