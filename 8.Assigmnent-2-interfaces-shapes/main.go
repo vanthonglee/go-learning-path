@@ -11,15 +11,15 @@ type square struct {
 }
 
 type shape interface {
-	printArea()
+	getArea() float64
 }
 
 func main() {
 	t := triangle{24, 13}
 	sq := square{5}
 
-	t.printArea()
-	sq.printArea()
+	printArea(t)
+	printArea(sq)
 }
 
 func (t triangle) getArea() float64 {
@@ -30,10 +30,6 @@ func (sq square) getArea() float64 {
 	return sq.sideLength * sq.sideLength
 }
 
-func (t triangle) printArea() {
-	fmt.Println("Area of this triangle:", t.getArea())
-}
-
-func (sq square) printArea() {
-	fmt.Println("Area of this square:", sq.getArea())
+func printArea(s shape) {
+	fmt.Println("Area of this square:", s.getArea())
 }
